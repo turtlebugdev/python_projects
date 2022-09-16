@@ -11,7 +11,7 @@ percent_tip = input('What percentage tip would the group like to leave ? 15, 20,
 each_pay_raw = ((float(total_bill) * .01 * float(percent_tip)) + float(total_bill))/float(diners_num)
 
 #rounding up to cents
-each_pay = (math.ceil(each_pay_raw *100))*.01
+each_pay = format((math.ceil(each_pay_raw *100))*.01, ".2f")
 
 
-print('Each person should pay: ' + str(each_pay))
+print(f'Each person should pay: ${each_pay}')
