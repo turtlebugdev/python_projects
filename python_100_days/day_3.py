@@ -46,30 +46,30 @@
 
 
 ######### BMI Calculator ##############
-print("Welcome to the BMI calcultor. Please start by entering your height, feet first then inches. ")
-height_ft = float(input("Please enter your height in feet: "))
-height_in = float(input("Please enter your height in inches: "))
-weight_lb = float(input("enter your weight in lbs: "))
+# print("Welcome to the BMI calcultor. Please start by entering your height, feet first then inches. ")
+# height_ft = float(input("Please enter your height in feet: "))
+# height_in = float(input("Please enter your height in inches: "))
+# weight_lb = float(input("enter your weight in lbs: "))
 
-height_m = ((height_ft * 12) + height_in) * .0254
-weight_kg = weight_lb * 0.453592
+# height_m = ((height_ft * 12) + height_in) * .0254
+# weight_kg = weight_lb * 0.453592
 
-bmi = round(weight_kg/(height_m*height_m),1)
+# bmi = round(weight_kg/(height_m*height_m),1)
 
-if bmi < 16.5:
-     print(f"Your BMI is {bmi} you are severly underweight")
-elif bmi < 18.5:
-     print(f"Your BMI is {bmi} you are underweight")
-elif bmi < 25:
-     print(f"Your BMI is {bmi} you are normal weight")
-elif bmi < 30:
-     print(f"Your BMI is {bmi} you are overweight")
-elif bmi < 35:
-     print(f"Your BMI is {bmi} you are obese")
-elif bmi < 40:
-     print(f"Your BMI is {bmi} you are obese class II")
-else:
-     print(f"Your BMI is {bmi} you are obese class III (extreme obesity)")
+# if bmi < 16.5:
+#      print(f"Your BMI is {bmi} you are severly underweight")
+# elif bmi < 18.5:
+#      print(f"Your BMI is {bmi} you are underweight")
+# elif bmi < 25:
+#      print(f"Your BMI is {bmi} you are normal weight")
+# elif bmi < 30:
+#      print(f"Your BMI is {bmi} you are overweight")
+# elif bmi < 35:
+#      print(f"Your BMI is {bmi} you are obese")
+# elif bmi < 40:
+#      print(f"Your BMI is {bmi} you are obese class II")
+# else:
+#      print(f"Your BMI is {bmi} you are obese class III (extreme obesity)")
 
 
 ####### Leap Year Calculator #########
@@ -123,49 +123,49 @@ else:
 
 ########### Pizza Order Calculator ##############
 # Create a program that takes various inputs regarding pizza size and toppings and outputs a total cost
-# import math
+import math
 
-# print("Welcome to Python Pizza, let's start your order! ")
+print("Welcome to Python Pizza, let's start your order! ")
 
-# p_size = input("What size pizza would you like? S for small, M for medium, and L for large. ")
-# pep = input("Would you like peperoni on your pizza, Y or N? ")
-# xchz = input("Would you like extra cheese, Y or N? ")
+p_size = input("What size pizza would you like? S for small, M for medium, and L for large. ")
+pep = input("Would you like peperoni on your pizza, Y or N? ")
+xchz = input("Would you like extra cheese, Y or N? ")
 
 
-# #cost for size
+#cost for size
 
-# if p_size.lower() == 's':
-#     base_cost = int(15)
-#     size = "small"
-# elif p_size.lower() == 'm':
-#     base_cost = int(20)
-#     size = "medium"
-# else:
-#     base_cost = int(25)
-#     size = "large"
+if p_size.lower() == 's':
+    base_cost = int(15)
+    size = "small"
+elif p_size.lower() == 'm':
+    base_cost = int(20)
+    size = "medium"
+else:
+    base_cost = int(25)
+    size = "large"
 
-# #cost for pep
-# if pep.lower() == 'y':
-#     if p_size.lower() == 's':
-#         pep_cost = int(2)
-#         pep_y = "with"
-#     else:
-#         pep_cost = int(3)
-#         pep_y = "with"
-# else:
-#     pep_cost = 0
-#     pep_y = "without"
+#cost for pep
+if pep.lower() == 'y':
+    if p_size.lower() == 's':
+        pep_cost = int(2)
+        pep_y = "with"
+    else:
+        pep_cost = int(3)
+        pep_y = "with"
+else:
+    pep_cost = 0
+    pep_y = "without"
 
-# #cost for xtra cheese
-# if xchz.lower() == 'y':
-#     chz_cost = int(1)
-#     chz_y = "with"
-# else:
-#     chz_cost = 0
-#     chz_y = "without"
+#cost for xtra cheese
+if xchz.lower() == 'y':
+    chz_cost = int(1)
+    chz_y = "with"
+else:
+    chz_cost = 0
+    chz_y = "without"
 
-# tot_cost_raw = float(base_cost+pep_cost+chz_cost)
-# #tot_cost = format(tot_cost_raw, ".2f")
-# tot_cost = format((math.ceil(tot_cost_raw *100))*.01,".2f")
+tot_cost_raw = float(base_cost+pep_cost+chz_cost)
+#tot_cost = format(tot_cost_raw, ".2f")
+tot_cost = format((math.ceil(tot_cost_raw *100))*.01,".2f")
 
-# print(f"Your order for a {size} pizza {pep_y} pepperoni and {chz_y} extra cheese will be ${tot_cost}. We look forward to serving you. ")
+print(f"Your order for a {size} pizza {pep_y} pepperoni and {chz_y} extra cheese will be ${tot_cost}. We look forward to serving you. ")
