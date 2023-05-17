@@ -79,7 +79,8 @@ print(hangmanpics[0])
 blank_cnt = display.count("_")
 lives = 6
 wrongs = 0
-guessed = []
+guesses = []
+incorrect_guessed = []
 while blank_cnt>0 and lives>0:
     guess = input("\nGuess a letter: ").lower()
     ind_cnt = 0
@@ -91,12 +92,13 @@ while blank_cnt>0 and lives>0:
     if new_blank_cnt == blank_cnt:
         lives -= 1
         wrongs += 1
-        guessed.append(guess)
+        incorrect_guessed.append(guess)
     else:
         blank_cnt = new_blank_cnt
     print(f"\nTarget word is: {display}\n")
-    print(f"Incorrect guesses: {guessed}")
+    print(f"Incorrect guesses: {incorrect_guessed}")
     print(hangmanpics[wrongs])
+            
 if blank_cnt == 0:
     print("\nYou WON!!! Congrats!")
 else:
