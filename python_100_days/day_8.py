@@ -97,48 +97,77 @@
 
 
 #### Ceasar Cypher ####
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-direction = ''
-while direction.lower() not in('encode','decode'):
-    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-    if direction.lower() not in('encode','decode'):
-        print('You must type encode or decode. Try again. ')
+logo = """           
+ ,adPPYba, ,adPPYYba,  ,adPPYba, ,adPPYba, ,adPPYYba, 8b,dPPYba,  
+a8"     "" ""     `Y8 a8P_____88 I8[    "" ""     `Y8 88P'   "Y8  
+8b         ,adPPPPP88 8PP"""""""  `"Y8ba,  ,adPPPPP88 88          
+"8a,   ,aa 88,    ,88 "8b,   ,aa aa    ]8I 88,    ,88 88          
+ `"Ybbd8"' `"8bbdP"Y8  `"Ybbd8"' `"YbbdP"' `"8bbdP"Y8 88   
+            88             88                                 
+           ""             88                                 
+                          88                                 
+ ,adPPYba, 88 8b,dPPYba,  88,dPPYba,   ,adPPYba, 8b,dPPYba,  
+a8"     "" 88 88P'    "8a 88P'    "8a a8P_____88 88P'   "Y8  
+8b         88 88       d8 88       88 8PP""""""" 88          
+"8a,   ,aa 88 88b,   ,a8" 88       88 "8b,   ,aa 88          
+ `"Ybbd8"' 88 88`YbbdP"'  88       88  `"Ybbd8"' 88          
+              88                                             
+              88           
+"""
+print(logo)
 
-text = input("Type your message:\n").lower()
-text_check = [*text]
-bad_char = []
-for t in text_check:
-    if t not in alphabet and t != ' ':
-        bad_char.append(t)
+run_cypher = True
 
-while  len(bad_char)>0:
-    print("The code may only contain letters")
+while run_cypher == True:
+
+    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','0','1','2','3','4','5','6','7','8','9','!','@','#','$','%','^','&','*','(',')','<','>','?',':',';',',','.','/','[',']','{','}','=','+','`','~',"'"]
+    direction = ''
+    while direction.lower() not in('encode','decode'):
+        direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+        if direction.lower() not in('encode','decode'):
+            print('You must type encode or decode. Try again. ')
+
     text = input("Type your message:\n").lower()
     text_check = [*text]
     bad_char = []
     for t in text_check:
         if t not in alphabet and t != ' ':
             bad_char.append(t)
-shift = int(input("Type the shift number:\n"))
 
-if direction.lower()  == 'encode':
-    def encrypt(text,shift):
-        code =''
-        for letter in text:
-            if letter == ' ':
-                code +=' '
-            elif alphabet.index(letter)+shift<= len(alphabet)-1:
-                code += alphabet[alphabet.index(letter)+shift]
-            else:
-                code+=  alphabet[alphabet.index(letter)+shift - (len(alphabet))]
-        print(code)   
-else: #direction.lower() == 'decode':
-    def encrypt(text,shift):
-        code =''
-        for letter in text:
-            if letter == ' ':
-                code +=' '
-            else:
-                code += alphabet[alphabet.index(letter)-shift]
-        print(code)
-encrypt(text,shift)
+    while  len(bad_char)>0:
+        print("The code may only contain letters, numbers, or these symbols (!,@,#,$,%,^,&,*,(,),<,>,?,:,;,',','.',/,[,],{,},=,+,`,~)")
+        text = input("Type your message:\n").lower()
+        text_check = [*text]
+        bad_char = []
+        for t in text_check:
+            if t not in alphabet and t != ' ':
+                bad_char.append(t)
+    shift = int(input("Type the shift number:\n"))
+    shift = shift % len(alphabet)
+
+    if direction.lower()  == 'encode':
+        def encrypt(text,shift):
+            code =''
+            for letter in text:
+                if letter == ' ':
+                    code +=' '
+                elif alphabet.index(letter)+shift<= len(alphabet)-1:
+                    code += alphabet[alphabet.index(letter)+shift]
+                else:
+                    code+=  alphabet[alphabet.index(letter)+shift - (len(alphabet))]
+            print(code)   
+    else: #direction.lower() == 'decode':
+        def encrypt(text,shift):
+            code =''
+            for letter in text:
+                if letter == ' ':
+                    code +=' '
+                else:
+                    code += alphabet[alphabet.index(letter)-shift]
+            print(code)
+    encrypt(text,shift)
+    again = input("Type 'yes' if you want to go again. Otherwise, type 'no'.").lower()
+    if again == 'yes':
+        run_cypher = True
+    else:
+        run_cypher = False
